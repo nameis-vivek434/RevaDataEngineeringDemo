@@ -11,7 +11,7 @@ class JSONReader(spark: SparkSession) {
    * @param options Map of options like multiline, etc. (optional).
    * @return A DataFrame containing the JSON data.
    */
-  def readJSON(path: String, options: Map[String, String] = Map("multiline" -> "false")): DataFrame = {
+  def readJSON(path: String, options: Map[String, String] = Map("multiline" -> "true")): DataFrame = {
     spark.read
       .options(options) // Set optional configurations like multiline=true
       .json(path) // Load the JSON file
