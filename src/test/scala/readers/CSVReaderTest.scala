@@ -42,4 +42,13 @@ class CSVReaderTest extends AnyFunSuite with Matchers {
     assert(!df.isEmpty, "The DataFrame should not be empty")
     df.select("name").collect().map(_.getString(0)) should contain allOf("Alice", "Bob", "Charlie")
   }
+  test("Sample test forCSVReader") {
+    // Provide custom options
+    val customOptions = Map("header" -> "true", "delimiter" -> ",")
+
+    // Read the CSV file with the custom options
+    val df = csvReader.readCSV(testCSVPath, customOptions)
+    df.show(false)
+  }
+
 }
